@@ -9,7 +9,7 @@ function setup()
 }
 
 function loop() {
-	// read from pot
+
 	waterLevel = analogRead(A0);
 	waterLevel = waterLevel1+25;
 	waterLevel1 = waterLevel;
@@ -18,12 +18,12 @@ function loop() {
 		waterLevel1=0;
 	}
 	Serial.println(waterLevel);
-	// map it from 1023 to 25
+	
 
 	if (waterLevel > 100) {
-		// analog write to led
-		analogWrite(1,50); // LED InTENSITY
-		customWrite(0,90); //
+		
+		analogWrite(1,50); 
+		customWrite(0,90); 
 		delay(1000);
 	}
 	else
