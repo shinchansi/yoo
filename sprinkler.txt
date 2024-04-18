@@ -1,0 +1,32 @@
+var Sprinkler = 0;
+var fan = 1;
+var potPin = A0;
+var value = 120;
+
+function setup() {
+	pinMode(Sprinkler, OUTPUT);
+	pinMode(fan, OUTPUT);
+	
+}
+
+
+function loop() {
+	var newValue = analogRead(potPin);
+	
+	newValue = Math.floor(map(newValue, 0, 1023,0, 255));
+	
+	if (newValue < value){
+		Serial.println("new value:" +newValue);
+		
+		customWrite(Sprinkler,1);
+		customWrite(fan, "2")
+		
+	}
+	else
+	{
+		Serial.println("new value:" +newValue);
+		
+		customWrite(Sprinkler, 0);
+		customWrite(fan, "0")
+	}
+}

@@ -1,0 +1,35 @@
+var waterLevel;
+var waterLevel1;
+
+function setup() 
+{
+	waterLevel1=0;
+	pinMode(0, OUTPUT); //D0 SERVO
+	pinMode(1, OUTPUT); // D1 LED
+}
+
+function loop() {
+	// read from pot
+	waterLevel = analogRead(A0);
+	waterLevel = waterLevel1+25;
+	waterLevel1 = waterLevel;
+	if (waterLevel1 > 105) // CHECK WATER Level
+	{
+		waterLevel1=0;
+	}
+	Serial.println(waterLevel);
+	// map it from 1023 to 25
+
+	if (waterLevel > 100) {
+		// analog write to led
+		analogWrite(1,50); // LED InTENSITY
+		customWrite(0,90); //
+		delay(1000);
+	}
+	else
+	{
+		analogWrite(1,200);
+		customWrite(0,160);
+		delay(1000);
+	}
+}

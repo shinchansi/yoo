@@ -1,0 +1,20 @@
+var MS = 0;
+var Alarm = 1;
+ function setup(){
+ 	pinMode(MS, INPUT);
+ 	pinMode(Alarm, OUTPUT);
+ 
+ }
+ 
+ function loop(){
+ 	var i = digitalRead(MS);
+ 	
+ 	if (i== HIGH)
+ 	{
+ 		digitalWrite(Alarm, HIGH);
+ 	}
+ 	else
+ 	{
+ 		digitalWrite(Alarm, LOW);
+ 	}
+ }
